@@ -11,5 +11,11 @@
 
     <artifactId>dynamicminecraftnetwork.server</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>de.d3adspace</groupId>
+            <artifactId>skylla-server</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

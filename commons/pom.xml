@@ -11,5 +11,11 @@
 
     <artifactId>dynamicminecraftnetwork.commons</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>de.d3adspace</groupId>
+            <artifactId>skylla-commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
