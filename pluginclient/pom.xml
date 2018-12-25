@@ -9,22 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dynamicminecraftnetwork.client</artifactId>
+    <artifactId>dynamicminecraftnetwork.base</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>de.d3adspace</groupId>
-            <artifactId>skylla-client</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>me.devsnox</groupId>
-            <artifactId>dynamicminecraftnetwork.commons</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>me.devsnox</groupId>
-            <artifactId>dynamicminecraftnetwork.api</artifactId>
+            <artifactId>dynamicminecraftnetwork.client</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

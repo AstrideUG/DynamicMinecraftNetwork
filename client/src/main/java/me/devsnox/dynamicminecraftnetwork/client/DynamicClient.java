@@ -7,15 +7,16 @@ import de.d3adspace.skylla.commons.protocol.Protocol;
 import me.devsnox.dynamicminecraftnetwork.client.handlers.ClientSchematicHandler;
 import me.devsnox.dynamicminecraftnetwork.commons.packets.SchematicPacket;
 
-import java.util.UUID;
-
 public class DynamicClient {
 
+    private SkyllaClient skyllaClient;
 
-    public static void main(String[] args) {
+    public DynamicClient() {
         Protocol protocol = new Protocol();
         protocol.registerPacket(SchematicPacket.class);
-        protocol.registerListener(new ClientSchematicHandler());
+
+        ClientSchematicHandler clientSchematicHandler = new ClientSchematicHandler();
+        protocol.registerListener(clientSchematicHandler);
 
         SkyllaConfig config = SkyllaConfig.newBuilder()
                 .setServerHost("localhost")
@@ -23,9 +24,18 @@ public class DynamicClient {
                 .setProtocol(protocol)
                 .createSkyllaConfig();
 
-        SkyllaClient skyllaClient = SkyllaClientFactory.createSkyllaClient(config);
+        this.skyllaClient = SkyllaClientFactory.createSkyllaClient(config);
         skyllaClient.connect();
 
-        skyllaClient.sendPacket(new SchematicPacket(UUID.randomUUID(), null));
+        new DynamicNetworkAPIHandler(this, clientSchematicHandler);
+    }
+
+    public boolean isConnected() {
+        //TODO: PingPacket
+        return false;
+    }
+
+    public SkyllaClient getSkyllaClient() {
+        return skyllaClient;
     }
 }
