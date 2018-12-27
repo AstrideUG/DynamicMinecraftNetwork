@@ -22,5 +22,10 @@
             <artifactId>dynamicminecraftnetwork.commons</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>me.devsnox</groupId>
+            <artifactId>dynamicminecraftnetwork.api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
