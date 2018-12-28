@@ -20,9 +20,16 @@ public class DynamicNetworkAPIHandler implements DynamicNetworkAPI {
         this.skyllaClient = skyllaClient;
     }
 
+
+    @Override
+    public void hasSchematic(UUID uuid, Consumer<Boolean> result) {
+        this.schematicHandler.addToBooleanReceiveQuery(uuid, result);
+        this.skyllaClient.sendPacket(new RequestSchematicPacket(uuid));
+    }
+
     @Override
     public void getSchematic(UUID uuid, Consumer<Schematic> request) {
-        this.schematicHandler.addToQuery(uuid, request);
+        this.schematicHandler.addToReceiveQuery(uuid, request);
         this.skyllaClient.sendPacket(new RequestSchematicPacket(uuid));
     }
 

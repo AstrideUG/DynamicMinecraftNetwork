@@ -1,0 +1,6 @@
+name: DynamicNetworkClient
+author: DevSnox
+version: 1.0
+loadbefore:
+  - PlanetSystem
+main: me.devsnox.dynamicminecraftnetwork.client.DynamicNetworkClientPlugin

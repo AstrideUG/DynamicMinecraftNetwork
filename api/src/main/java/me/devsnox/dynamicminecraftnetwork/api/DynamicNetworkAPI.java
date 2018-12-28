@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 
 public interface DynamicNetworkAPI {
 
-    boolean hasSchematic(UUID uuid);
+    void hasSchematic(UUID uuid, Consumer<Boolean> result);
     void getSchematic(UUID uuid, Consumer<Schematic> request);
     void saveSchematic(UUID uuid, Schematic schematic);
 }

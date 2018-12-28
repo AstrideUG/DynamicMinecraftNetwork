@@ -1,36 +1,33 @@
 package me.devsnox.dynamicminecraftnetwork.server.handlers;
 
-import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import de.d3adspace.skylla.commons.connection.SkyllaConnection;
 import de.d3adspace.skylla.commons.protocol.handler.PacketHandler;
 import de.d3adspace.skylla.commons.protocol.handler.PacketHandlerMethod;
-import de.d3adspace.skylla.server.SkyllaServer;
+import me.devsnox.dynamicminecraftnetwork.commons.packets.ExistSchematicPacket;
 import me.devsnox.dynamicminecraftnetwork.commons.packets.RequestSchematicPacket;
 import me.devsnox.dynamicminecraftnetwork.commons.packets.SchematicPacket;
-
-import java.io.File;
-import java.io.IOException;
+import me.devsnox.dynamicminecraftnetwork.server.data.DataManager;
 
 public class ServerSchematicHandler implements PacketHandler {
 
+    private DataManager dataManager;
+
+    public ServerSchematicHandler() {
+        this.dataManager = new DataManager("DynamicStorage");
+    }
+
     @PacketHandlerMethod
     public void onServerSchematicRequest(SkyllaConnection skyllaConnection, RequestSchematicPacket requestSchematicPacket) {
-        /*File file = new File(requestSchematicPacket.getUuid().toString());
-        try {
-            skyllaConnection.sendPackets(new SchematicPacket(requestSchematicPacket.getUuid(), ClipboardFormat.findByFile(file).load(file)));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        System.out.println("request");
+        skyllaConnection.sendPackets(new SchematicPacket(requestSchematicPacket.getUuid(), this.dataManager.load(requestSchematicPacket.getUuid())));
     }
 
     @PacketHandlerMethod
     public void onServerSchematicReceive(SkyllaConnection skyllaConnection, SchematicPacket schematicPacket) {
-        /*try {
-            schematicPacket.getSchematic().save(new File(schematicPacket.getUuid().toString()), ClipboardFormat.SCHEMATIC);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        System.out.printf("save");
+        this.dataManager.save(schematicPacket.getUuid(), schematicPacket.getSchematic());
+    }
+
+    @PacketHandlerMethod
+    public void onServerSchematicExistsReceive(SkyllaConnection skyllaConnection, ExistSchematicPacket existPacket) {
+        skyllaConnection.sendPackets(new ExistSchematicPacket(existPacket.getUuid(), this.dataManager.exists(existPacket.getUuid())));
     }
 }
