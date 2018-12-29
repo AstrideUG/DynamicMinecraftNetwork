@@ -7,7 +7,6 @@ import de.d3adspace.skylla.commons.protocol.handler.PacketHandlerMethod;
 import me.devsnox.dynamicminecraftnetwork.commons.packets.ExistSchematicPacket;
 import me.devsnox.dynamicminecraftnetwork.commons.packets.SchematicPacket;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;

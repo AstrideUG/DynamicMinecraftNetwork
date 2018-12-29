@@ -1,6 +1,8 @@
 name: DynamicNetworkClient
 author: DevSnox
 version: 1.0
+depend:
+  - FastAsyncWorldEdit
 loadbefore:
   - PlanetSystem
 main: me.devsnox.dynamicminecraftnetwork.client.DynamicNetworkClientPlugin

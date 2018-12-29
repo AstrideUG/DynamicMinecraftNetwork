@@ -1,6 +1,6 @@
 package me.devsnox.dynamicminecraftnetwork.api;
 
-import com.boydti.fawe.object.schematic.Schematic;
+import me.devsnox.dynamicminecraftnetwork.commons.worldedit.Schematic;
 
 import java.util.UUID;
 import java.util.function.Consumer;

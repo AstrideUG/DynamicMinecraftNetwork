@@ -6,16 +6,13 @@ import de.d3adspace.skylla.commons.config.SkyllaConfig;
 import de.d3adspace.skylla.commons.protocol.Protocol;
 import me.devsnox.dynamicminecraftnetwork.api.DynamicNetworkFactory;
 import me.devsnox.dynamicminecraftnetwork.client.handlers.ClientSchematicHandler;
-import me.devsnox.dynamicminecraftnetwork.commons.packets.RequestSchematicPacket;
-import me.devsnox.dynamicminecraftnetwork.commons.packets.SchematicPacket;
-
-import java.util.UUID;
+import me.devsnox.dynamicminecraftnetwork.commons.worldedit.DynamicNetworkProtocol;
 
 public class DynamicClient {
 
     public DynamicClient() {
-        Protocol protocol = new Protocol();
-        protocol.registerPacket(SchematicPacket.class);
+        Protocol protocol = new DynamicNetworkProtocol();
+
         ClientSchematicHandler schematicHandler = new ClientSchematicHandler();
         protocol.registerListener(schematicHandler);
 

@@ -7,7 +7,7 @@ import de.d3adspace.skylla.commons.protocol.packet.SkyllaPacketMeta;
 import java.util.UUID;
 
 @SkyllaPacketMeta(id = 2)
-public class ExistSchematicPacket extends SkyllaPacket {
+public final class ExistSchematicPacket extends SkyllaPacket {
 
     private UUID uuid;
     private boolean exists;

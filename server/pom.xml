@@ -13,6 +13,13 @@
 
     <artifactId>dynamicminecraftnetwork.server</artifactId>
 
+    <repositories>
+        <repository>
+            <id>paper-repos</id>
+            <url>https://papermc.io/repo/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>de.d3adspace</groupId>
@@ -24,11 +31,22 @@
             <artifactId>dynamicminecraftnetwork.commons</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.0.1-jre</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.github.paperspigot</groupId>
+            <artifactId>paperspigot-api</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.4</version>
@@ -39,7 +57,7 @@
                         </manifest>
                     </archive>
                 </configuration>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -55,8 +73,11 @@
                                 <includes>
                                     <include>de.d3adspace:skylla-server</include>
                                     <include>me.devsnox:dynamicminecraftnetwork.commons</include>
-                                    <include>com.boydti:fawe-api</include>
+                                    <include>com.google.guava:guava</include>
                                 </includes>
+                                <excludes>
+                                    <exclude>com.boydti:fawe-api</exclude>
+                                </excludes>
                             </artifactSet>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>

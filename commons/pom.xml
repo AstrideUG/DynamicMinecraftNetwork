@@ -16,18 +16,57 @@
             <id>fawe-repo</id>
             <url>http://ci.athion.net/job/FastAsyncWorldEdit/ws/mvn/</url>
         </repository>
+        <!--<repository>
+            <id>worldedit-repo</id>
+            <url>http://maven.sk89q.com/repo/</url>
+        </repository>-->
     </repositories>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+
         <dependency>
             <groupId>de.d3adspace</groupId>
             <artifactId>skylla-commons</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.boydti</groupId>
             <artifactId>fawe-api</artifactId>
             <version>latest</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sk89q.worldedit</groupId>
+            <artifactId>worldedit-bukkit</artifactId>
+            <version>6.1</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>com.google.guava:guava</include>
+                                </includes>
+                            </artifactSet>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

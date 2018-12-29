@@ -1,0 +1,6 @@
+name: DynamicMinecraftServer
+author: DevSnox
+version: 1.0
+main: me.devsnox.dynamicminecraftnetwork.server.DynamicServerPlugin
+depend:
+  - FastAsyncWorldEdit

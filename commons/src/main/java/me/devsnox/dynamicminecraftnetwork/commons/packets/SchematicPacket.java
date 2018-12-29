@@ -23,7 +23,7 @@ public final class SchematicPacket extends SkyllaPacket {
     @Override
     public final void write(SkyllaBuffer skyllaBuffer) {
         skyllaBuffer.writeUniqueId(uuid);
-        skyllaBuffer.writeObject(schematic);
+        skyllaBuffer.writeObject(this.schematic);
     }
 
     @Override
@@ -36,7 +36,7 @@ public final class SchematicPacket extends SkyllaPacket {
         return uuid;
     }
 
-    public final Schematic getSchematic() {
+    public Schematic getSchematic() {
         return schematic;
     }
 }

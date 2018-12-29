@@ -1,7 +1,9 @@
-package me.devsnox.dynamicminecraftnetwork.server.data;
+package me.devsnox.dynamicminecraftnetwork.client.io;
 
-import com.boydti.fawe.object.schematic.Schematic;
-import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
+import me.devsnox.dynamicminecraftnetwork.commons.worldedit.Schematic;
+import me.devsnox.dynamicminecraftnetwork.commons.worldedit.SchematicLoader;
+import me.devsnox.dynamicminecraftnetwork.commons.worldedit.SchematicSaver;
+import org.bukkit.Bukkit;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,8 +26,9 @@ public class DataManager {
     }
 
     public void save(UUID uuid, Schematic schematic) {
+        System.out.println(schematic.toString());
         try {
-            schematic.save(new File(directory, uuid.toString()), ClipboardFormat.SCHEMATIC);
+            SchematicSaver.save(schematic, new File(this.directory, uuid + ".schematic"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -33,14 +36,14 @@ public class DataManager {
 
     public Schematic load(UUID uuid) {
         if (exists(uuid)) {
-            return load(new File(this.directory, uuid.toString()));
+            return load(new File(this.directory, uuid.toString() + ".schematic"));
         }
 
         return getDefaultSchematic();
     }
 
     private Schematic getDefaultSchematic() {
-        File file = new File(this.directory.getParentFile(), "default.schematic");
+        File file = new File(this.directory, "default.schematic");
 
         if (!file.exists() || file.isDirectory()) {
             throw new RuntimeException("IO NetworkSchematic Exception - No default file found!"); //TODO Better message
@@ -51,7 +54,7 @@ public class DataManager {
 
     private Schematic load(File file) {
         try {
-            return ClipboardFormat.SCHEMATIC.load(file);
+            return SchematicLoader.load(Bukkit.getWorlds().get(0), file);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
