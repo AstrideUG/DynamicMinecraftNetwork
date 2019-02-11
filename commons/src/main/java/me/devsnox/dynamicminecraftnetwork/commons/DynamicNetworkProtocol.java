@@ -1,4 +1,4 @@
-package me.devsnox.dynamicminecraftnetwork.commons.worldedit;
+package me.devsnox.dynamicminecraftnetwork.commons;
 
 import de.d3adspace.skylla.commons.protocol.Protocol;
 import me.devsnox.dynamicminecraftnetwork.commons.packets.ExistSchematicPacket;
@@ -7,7 +7,7 @@ import me.devsnox.dynamicminecraftnetwork.commons.packets.SchematicPacket;
 
 import java.io.Serializable;
 
-public class DynamicNetworkProtocol extends Protocol implements Serializable {
+public class DynamicNetworkProtocol extends Protocol {
 
     public DynamicNetworkProtocol() {
         this.registerPacket(SchematicPacket.class);

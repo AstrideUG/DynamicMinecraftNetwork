@@ -16,20 +16,16 @@
             <id>fawe-repo</id>
             <url>http://ci.athion.net/job/FastAsyncWorldEdit/ws/mvn/</url>
         </repository>
-        <!--<repository>
+        <repository>
             <id>worldedit-repo</id>
             <url>http://maven.sk89q.com/repo/</url>
-        </repository>-->
+        </repository>
     </repositories>
-
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-
         <dependency>
             <groupId>de.d3adspace</groupId>
             <artifactId>skylla-commons</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.boydti</groupId>
@@ -60,6 +56,8 @@
                             <artifactSet>
                                 <includes>
                                     <include>com.google.guava:guava</include>
+                                    <include>com.boydti:fawe-api</include>
+                                    <include>de.d3adspace:skylla-commons</include>
                                 </includes>
                             </artifactSet>
                             <createDependencyReducedPom>false</createDependencyReducedPom>

@@ -1,6 +1,5 @@
 package me.devsnox.dynamicminecraftnetwork.client;
 
-import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class DynamicNetworkClientPlugin extends JavaPlugin {

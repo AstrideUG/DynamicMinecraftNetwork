@@ -1,11 +1,11 @@
 package me.devsnox.dynamicminecraftnetwork.client;
 
+import com.boydti.fawe.object.schematic.Schematic;
 import de.d3adspace.skylla.client.SkyllaClient;
 import me.devsnox.dynamicminecraftnetwork.api.DynamicNetworkAPI;
 import me.devsnox.dynamicminecraftnetwork.client.handlers.ClientSchematicHandler;
 import me.devsnox.dynamicminecraftnetwork.client.io.DataManager;
 import me.devsnox.dynamicminecraftnetwork.commons.packets.RequestSchematicPacket;
-import me.devsnox.dynamicminecraftnetwork.commons.worldedit.Schematic;
 
 import java.util.UUID;
 import java.util.function.Consumer;

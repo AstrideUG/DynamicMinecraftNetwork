@@ -1,9 +1,7 @@
 package me.devsnox.dynamicminecraftnetwork.client.io;
 
-import me.devsnox.dynamicminecraftnetwork.commons.worldedit.Schematic;
-import me.devsnox.dynamicminecraftnetwork.commons.worldedit.SchematicLoader;
-import me.devsnox.dynamicminecraftnetwork.commons.worldedit.SchematicSaver;
-import org.bukkit.Bukkit;
+import com.boydti.fawe.object.schematic.Schematic;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +26,7 @@ public class DataManager {
     public void save(UUID uuid, Schematic schematic) {
         System.out.println(schematic.toString());
         try {
-            SchematicSaver.save(schematic, new File(this.directory, uuid + ".schematic"));
+            schematic.save(new File(this.directory, uuid + ".schematic"), ClipboardFormat.SCHEMATIC);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,7 +52,7 @@ public class DataManager {
 
     private Schematic load(File file) {
         try {
-            return SchematicLoader.load(Bukkit.getWorlds().get(0), file);
+            return ClipboardFormat.SCHEMATIC.load(file);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
