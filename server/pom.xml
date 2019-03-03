@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>dynamicminecraftnetwork</artifactId>
@@ -10,13 +10,16 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-
     <artifactId>dynamicminecraftnetwork.server</artifactId>
 
     <repositories>
         <repository>
             <id>paper-repos</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>FastAsyncWorldEdit</id>
+            <url>http://ci.athion.net/job/FastAsyncWorldEdit/ws/mvn/</url>
         </repository>
     </repositories>
 
@@ -41,6 +44,12 @@
             <groupId>org.github.paperspigot</groupId>
             <artifactId>paperspigot-api</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.boydti</groupId>
+            <artifactId>fawe-api</artifactId>
+            <version>18.12.19-d131fa6-1241-22.0.3</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

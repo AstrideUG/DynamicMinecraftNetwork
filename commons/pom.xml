@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>dynamicminecraftnetwork</artifactId>
@@ -30,8 +30,8 @@
         <dependency>
             <groupId>com.boydti</groupId>
             <artifactId>fawe-api</artifactId>
-            <version>latest</version>
-            <scope>compile</scope>
+            <version>19.01.12-dc2d277-1245-22.0.7</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.sk89q.worldedit</groupId>
