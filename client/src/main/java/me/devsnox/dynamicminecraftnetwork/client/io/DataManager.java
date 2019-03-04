@@ -10,7 +10,7 @@ import java.util.UUID;
 public class DataManager
 {
 	private final File directory;
-	private Schematic defaultSchematic = loadDefaultSchematic();
+	private Schematic defaultSchematic;
 	
 	public DataManager(String name)
 	{
@@ -19,6 +19,7 @@ public class DataManager
 		{
 			this.directory.mkdirs();
 		}
+		this.defaultSchematic = loadDefaultSchematic();
 	}
 	
 	public boolean exists(UUID uuid)
