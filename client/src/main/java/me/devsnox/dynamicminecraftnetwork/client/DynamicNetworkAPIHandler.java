@@ -33,6 +33,7 @@ public class DynamicNetworkAPIHandler implements DynamicNetworkAPI
 	@Override
 	public void getSchematic(UUID uuid, Consumer<Schematic> request)
 	{
+		System.out.println("getSchematic" + uuid);
 		request.accept(this.dataManager.load(uuid));
 	}
 	
